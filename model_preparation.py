@@ -1,56 +1,27 @@
 import pandas as pd
 
-from sklearn.preprocessing import StandardScaler
-from sklearn.preprocessing import OrdinalEncoder
+from sklearn.model_selection import train_test_split
 
+from sklearn.linear_model import LinearRegression
 
-def preparation_data(path):
-    """
-    Prepare the data for ML
+import pickle
 
-    Params:
-        - path (str): path to file with data
+# Get data from prepared csv
+df = pd.read_csv('./train/train_prepared.csv')
 
-    Returns:
-        - data (pd.DataFrame): dataframe with prepared data
-    """
+# Get features and target
+X, y = df.drop('price', axis=1), df['price']
 
-    # Get dataset from file
-    df = pd.read_csv(path)
+# Split it out
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.3, random_state=42)
 
-    # Remove useless column
-    df.drop(['ID'], axis=1, inplace=True)
+# Crate model
+lr = LinearRegression()
 
-    # Divide features for cat/num
-    cat_columns = []
-    num_columns = []
+# Fit
+lr.fit(X_train, y_train)
 
-    for column_name in df.columns:
-        if df[column_name].dtypes == object:
-            cat_columns += [column_name]
-        else:
-            num_columns += [column_name]
+# Save model
+with open('model.pkl', 'wb') as f:
+    pickle.dump(lr, f)
 
-    # Scaling num features
-    scaler = StandardScaler()
-    scaler.fit(df[num_columns])
-    df[num_columns] = scaler.transform(df[num_columns])
-
-    # Encode cat features
-    encoder = OrdinalEncoder()
-    encoder.fit(df[cat_columns])
-    df[cat_columns] = encoder.transform(df[cat_columns])
-
-    return df
-
-
-if __name__ == '__main__':
-    # Prep train data
-    train = preparation_data('./train/train.csv')
-    # Save it
-    train.to_csv('./train/train_prepared.csv')
-
-    # Prep train data
-    test = preparation_data('./test/test.csv')
-    # Save it
-    test.to_csv('./test/test_prepared.csv')
