@@ -38,7 +38,7 @@ if __name__ == '__main__':
     # Split it into train/test
     dataset_filename = './scrap price.csv'
     df = pd.read_csv(dataset_filename)
-    train, test = train_test_split(df, test_size=.30, random_state=42)
+    train, test = train_test_split(df, test_size=.4, random_state=42)
 
     # Save datasets
     train.to_csv(train_full_path, index=False)
