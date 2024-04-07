@@ -6,6 +6,8 @@ from sklearn.linear_model import LinearRegression
 
 import pickle
 
+separator = '===================================='
+
 # Get data from prepared csv
 df = pd.read_csv('./train/train_prepared.csv')
 
@@ -30,4 +32,6 @@ with open('model.pkl', 'wb') as f:
     pickle.dump(lr, f)
 
 print('Model has been saved')
+print(separator)
+print(separator)
 
