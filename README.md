@@ -1,4 +1,4 @@
-# MLOps homework
+# MLOps homework 
 
 ## What it does
 
@@ -48,3 +48,9 @@ chmod u+x pipeline.sh
 
 #### 4. Run
 Just start app with `./pipeline.sh`
+
+After running app you will see:
+
+<img width="575" alt="Снимок экрана 2024-04-07 в 12 35 52" src="https://github.com/johnneon/ml_ops_hm_1/assets/53760291/f2b2fdc3-fd8b-47da-b987-688e8af654c1">
+
+It means that it worked succesfully and r2 model metric on test data is about 0.75 :)

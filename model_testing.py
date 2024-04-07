@@ -53,6 +53,6 @@ if __name__ == '__main__':
         cross_validation(X, y, model, scoring=scoring_reg, cv_rule=cv_rule)
 
     # Remove already useless files
-    remove('./model.pkl')
+    # remove('./model.pkl') probably we don't need to delete this
     remove('./test/test_prepared.csv')
     remove('./train/train_prepared.csv')
