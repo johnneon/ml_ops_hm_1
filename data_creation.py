@@ -3,12 +3,11 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 
 import os
+
 # Setting up env var KAGGLE_CONFIG_DIR
 os.environ['KAGGLE_CONFIG_DIR'] = '.'
 
-# Then we can import kaggle api
-from kaggle.api.kaggle_api_extended import KaggleApi
-
+separator = '===================================='
 
 if __name__ == '__main__':
     train_full_path = './train/train.csv'
@@ -18,12 +17,17 @@ if __name__ == '__main__':
     if os.path.isfile(train_full_path) and os.path.isfile(test_full_path):
         print('Train and test data already exists.')
         print('Delete existing file if you wish to download new.')
+        print(separator)
+        print(separator)
         exit()
 
+    print('Start downloading data...')
     # Create folders for data
     os.makedirs('train', exist_ok=True)
     os.makedirs('test', exist_ok=True)
 
+    # Then we can import kaggle api
+    from kaggle.api.kaggle_api_extended import KaggleApi
     # Connect to api
     api = KaggleApi()
     api.authenticate()
@@ -49,3 +53,5 @@ if __name__ == '__main__':
         os.remove(dataset_filename)
 
     print('Data successfully created.')
+    print(separator)
+    print(separator)

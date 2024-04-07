@@ -4,6 +4,8 @@ from sklearn.preprocessing import PowerTransformer
 from sklearn.preprocessing import StandardScaler
 from sklearn.preprocessing import OrdinalEncoder
 
+separator = '===================================='
+
 
 def preparation_data(path):
     """
@@ -64,3 +66,5 @@ if __name__ == '__main__':
     # Save it
     test.to_csv('./test/test_prepared.csv')
     print('Finished preprocessing')
+    print(separator)
+    print(separator)
