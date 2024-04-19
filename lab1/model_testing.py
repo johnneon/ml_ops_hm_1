@@ -40,7 +40,7 @@ def remove(path):
 
 if __name__ == '__main__':
     # Get test data
-    df = pd.read_csv('./test/test_prepared.csv')
+    df = pd.read_csv('test/test_prepared.csv')
     # Get features and target
     X, y = df.drop('price', axis=1), df['price']
 
@@ -54,5 +54,5 @@ if __name__ == '__main__':
 
     # Remove already useless files
     # remove('./model.pkl') probably we don't need to delete this
-    remove('./test/test_prepared.csv')
-    remove('./train/train_prepared.csv')
+    remove('test/test_prepared.csv')
+    remove('train/train_prepared.csv')

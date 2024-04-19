@@ -10,8 +10,8 @@ os.environ['KAGGLE_CONFIG_DIR'] = '.'
 separator = '===================================='
 
 if __name__ == '__main__':
-    train_full_path = './train/train.csv'
-    test_full_path = './test/test.csv'
+    train_full_path = 'train/train.csv'
+    test_full_path = 'test/test.csv'
 
     # If data already exists, no need to download new
     if os.path.isfile(train_full_path) and os.path.isfile(test_full_path):
@@ -35,7 +35,7 @@ if __name__ == '__main__':
     # Download dataset
     api.dataset_download_files(
         'erolmasimov/price-prediction-multiple-linear-regression',
-        path='.',
+        path='..',
         unzip=True
     )
 

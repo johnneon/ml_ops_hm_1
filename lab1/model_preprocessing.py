@@ -55,14 +55,14 @@ def preparation_data(path):
 if __name__ == '__main__':
     print('Starting preprocessing training data...')
     # Prep train data
-    train = preparation_data('./train/train.csv')
+    train = preparation_data('train/train.csv')
     # Save it
     train.to_csv('./train/train_prepared.csv')
     print('Finished preprocessing training')
 
     print('Starting preprocessing testing data...')
     # Prep train data
-    test = preparation_data('./test/test.csv')
+    test = preparation_data('test/test.csv')
     # Save it
     test.to_csv('./test/test_prepared.csv')
     print('Finished preprocessing')
