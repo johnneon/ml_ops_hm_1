@@ -9,7 +9,7 @@ import pickle
 separator = '===================================='
 
 # Get data from prepared csv
-df = pd.read_csv('./train/train_prepared.csv')
+df = pd.read_csv('train/train_prepared.csv')
 
 # Get features and target
 X, y = df.drop('price', axis=1), df['price']
