@@ -19,3 +19,10 @@ To start, you need to obtain a [Kaggle](https://www.kaggle.com/account/login) au
 - Click "Create New API Token". This will lead to the download of the `kaggle.json` file.
 
 Then you need to install kaggle file as `kaggle_secret` in jenkins credentials.
+
+Green pipeline screen:
+![Снимок экрана 2024-04-20 в 19 02 11](https://github.com/johnneon/ml_ops_lab/assets/53760291/fadaa47b-9b67-4b4b-8dfe-343e46367c52)
+
+
+ML final review in pipeline:
+![Снимок экрана 2024-04-20 в 19 02 35](https://github.com/johnneon/ml_ops_lab/assets/53760291/9e64e39b-00da-40f7-9fe3-c0579b83f466)
