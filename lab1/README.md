@@ -25,7 +25,7 @@ To start, you need to obtain a [Kaggle](https://www.kaggle.com/account/login) au
 - Click "Create New API Token". This will lead to the download of the `kaggle.json` file.
 - Put this file into the root of this project like:
 ```
-/ml_ops_hm_1/
+/ml_ops_lab/
     ...
     model_testing.py
     pipline.sh

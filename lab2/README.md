@@ -2,9 +2,7 @@
 
 ## What it does
 
-It is a little sample CT (Continuous training) pipeline.
-Pipeline script runs already prepared python scripts one by one.
-So, first we download data from Kaggle, then process it, prepare model and test it.
+MLOPs Jenkins ready app. For using it, you need to install jenkins, and use Jenkinsfile as main pipeline.
 
 What I use for this app:
 1. Dataset - [Price Prediction -Multiple Linear Regression](https://www.kaggle.com/datasets/erolmasimov/price-prediction-multiple-linear-regression/data)
@@ -12,45 +10,19 @@ What I use for this app:
 
 ## How to start app
 
-There are two ways to use this app, downloading data from kaggle, or not.
+See [lab1](../lab1).
 
-We have ready `train/train.csv` and `train/train.csv` datasets, if we run the app, data won't be downloaded from kaggle,
-so you can skip `1. Kaggle API Token` step to start. But if you want to test entire program, you supposed to delete
-the following train and test folders with data in them.
-
-#### 1. Kaggle API Token
+#### Kaggle API Token
 To start, you need to obtain a [Kaggle](https://www.kaggle.com/account/login) authentication token. To do this, you will need to:
 - Log in to your Kaggle account.
 - Go to the "Account" section on your profile page.
 - Click "Create New API Token". This will lead to the download of the `kaggle.json` file.
-- Put this file into the root of this project like:
-```
-/ml_ops_hm_1/
-    ...
-    model_testing.py
-    pipline.sh
-    kaggle.json <--
-```
+
+Then you need to install kaggle file as `kaggle_secret` in jenkins credentials.
+
+Green pipeline screen:
+![Снимок экрана 2024-04-20 в 19 02 11](https://github.com/johnneon/ml_ops_lab/assets/53760291/fadaa47b-9b67-4b4b-8dfe-343e46367c52)
 
 
-#### 2. Install dependencies
-Run:
-```bash
-pip install -r requirements.txt
-```
-
-#### 3. Starting pipeline
-We need to make `pipeline.sh` - "executable".
-To do this, run the following command:
-```bash
-chmod u+x pipeline.sh
-```
-
-#### 4. Run
-Just start app with `./pipeline.sh`
-
-After running app you will see:
-
-<img width="575" alt="Снимок экрана 2024-04-07 в 12 35 52" src="https://github.com/johnneon/ml_ops_hm_1/assets/53760291/f2b2fdc3-fd8b-47da-b987-688e8af654c1">
-
-It means that it worked succesfully and r2 model metric on test data is about 0.75 :)
+ML final review in pipeline:
+![Снимок экрана 2024-04-20 в 19 02 35](https://github.com/johnneon/ml_ops_lab/assets/53760291/9e64e39b-00da-40f7-9fe3-c0579b83f466)
