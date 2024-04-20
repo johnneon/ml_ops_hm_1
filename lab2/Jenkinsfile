@@ -1,0 +1,50 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Git') {
+            steps {
+                // Get code from a GitHub repository
+                git 'https://github.com/johnneon/ml_ops_lab.git'
+            }
+        }
+        stage('Set up Kaggle API Credentials') {
+            steps {
+                // Using jenkins credentials plugin get our kaggle secret key and set it up
+                withCredentials([file(credentialsId: 'kaggle_secret', variable: 'PRIVATE_FILE')]) {
+                    sh "mkdir -p ~/.kaggle"
+                    sh "cat $PRIVATE_FILE > ~/.kaggle/kaggle.json"
+                    sh "cat ~/.kaggle/kaggle.json"
+                    sh "chmod 600 ~/.kaggle/kaggle.json"
+                }
+            }
+        }
+        stage('Environment') {
+            steps {
+                // Create virtualenv
+                sh "virtualenv ./venv"
+                // Install python requirements
+                sh """
+                . ./venv/bin/activate
+                pip install -r requirements.txt
+                deactivate
+                """
+            }
+        }
+         stage('ML Project run') {
+            steps {
+                // Run our ml project
+                sh """
+                . ./venv/bin/activate
+                cd ./lab2/
+                python ./data_creation.py --default-kaggle-dir=True
+                python ./model_preprocessing.py
+                python ./model_preparation.py
+                python ./model_testing.py
+                cd ../
+                deactivate
+                """
+            }
+        }
+    }
+}
