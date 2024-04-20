@@ -42,7 +42,7 @@ if __name__ == '__main__':
     # Download dataset
     api.dataset_download_files(
         'erolmasimov/price-prediction-multiple-linear-regression',
-        path='..',
+        path='./',
         unzip=True
     )
 
