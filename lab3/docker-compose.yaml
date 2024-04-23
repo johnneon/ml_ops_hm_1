@@ -1,0 +1,12 @@
+version: "1"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fast-api-iris-predict-image
+    container_name: fast-api-iris-predict-container
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app

@@ -164,3 +164,7 @@ cython_debug/
 # Kaggle token file
 kaggle.json
 /data_creation_1.py
+
+# Some more files
+lab3/data.csv
+lab3/model.pkl
