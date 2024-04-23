@@ -74,3 +74,27 @@ application with docker container.
 3. Setting up working dir
 4. Prepare ML model
 5. Run API application
+
+As main image I chose `python:3.9-slim`, because before I tried to
+set up it with alpine and installing all dependencies took
+about 15 minutes with Dockerfile:
+```dockerfile
+# Base image
+FROM alpine
+# Install python
+RUN apk add --update python3 py3-pip
+# Install some other stuff for building packages
+RUN apk add --no-cache build-base python3-dev libffi-dev musl-dev openblas-dev
+# Set working dir up
+WORKDIR /app
+# Copy project files
+COPY . /app
+# Use virtual env
+RUN python3 -m venv ./venv
+# Install python libs
+RUN . venv/bin/activate && pip install -r requirements.txt && deactivate
+# Prepare model
+RUN . venv/bin/activate && python src/model.py && deactivate
+# Run application
+CMD . venv/bin/activate && uvicorn src.main:app --host 0.0.0.0 --port 8000
+```
