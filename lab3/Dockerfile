@@ -1,20 +1,19 @@
 # Base image
-FROM alpine
+FROM python:3.9-slim
 
-# Install python
-RUN apk add python3
-
+# Install some other stuff for building packages
 # Set working dir up
 WORKDIR /app
 
 # Copy project files
 COPY . /app
 
+# Use virtual env
 # Install python libs
 RUN pip install -r requirements.txt
 
 # Prepare model
-CMD python model.py
+RUN python src/model.py
 
 # Run application
 CMD uvicorn src.main:app --host 0.0.0.0 --port 8000
