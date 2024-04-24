@@ -12,4 +12,4 @@ power.fit(df)
 power_df = power.transform(df)
 
 # Save new version of dataset
-pd.DataFrame(power_df, columns=df.columns).to_csv('./datasets/data.csb')
+pd.DataFrame(power_df, columns=df.columns).to_csv('./datasets/data.csv')
