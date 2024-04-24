@@ -15,6 +15,8 @@ We had to make some steps:
 
 As remote storage chosen [Google Drive folder](https://drive.google.com/drive/folders/1lHf_W9A27S8t_YUCJXdNOruY7gBPbxWV?usp=drive_link).
 
+![Снимок экрана 2024-04-24 в 23 03 12](https://github.com/johnneon/ml_ops_lab/assets/53760291/a35de875-2e64-4347-af45-100abdc10740)
+
 So, we need to see our get commits with `git log --oneline`:
 
 ```shell
@@ -43,7 +45,9 @@ dvc pull
 ## A bit about application
 
 `model.py` - download data and save it to datasets folder
+
 `first_prep.py` - modifying dataset with StandardScaler
+
 `second_prep.py` - modifying dataset with PowerTransformer
 
 To run all those scripts - be sure you are currently in `lab4` dir.
