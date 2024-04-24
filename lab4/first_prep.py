@@ -12,4 +12,4 @@ scaler.fit(df)
 scaled_df = scaler.transform(df)
 
 # Save new version of dataset
-scaled_df.to_csv('./datasets/data.scv')
+pd.DataFrame(scaled_df, columns=df.columns).to_csv('./datasets/data.csv')
