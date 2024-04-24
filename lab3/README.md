@@ -68,6 +68,11 @@ We also have `Dockerfile` which describes docker image of our app
 and `docker-compose.yaml` which contains instructions how to up our
 application with docker container.
 
+To start docker, you need to be in `lab3` dir, and run:
+```shell
+docker compose up
+```
+
 #### What Dockerfile does
 1. Install base image (clean alpine)
 2. Install python interpreter
